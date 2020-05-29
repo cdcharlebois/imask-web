@@ -12,12 +12,18 @@ class IMaskWeb extends Component {
     }
 
     handleAcceptedEntry(value, mask) {
-        const { attribute } = this.props;
+        const { attribute, onAcceptAction } = this.props;
         attribute.setValue(value);
+        if (onAcceptAction && onAcceptAction.canExecute) {
+            onAcceptAction.execute();
+        }
     }
 
     handleCompletedEntry(value) {
-        console.log(value);
+        const { onCompleteAction } = this.props;
+        if (onCompleteAction && onCompleteAction.canExecute) {
+            onCompleteAction.execute();
+        }
     }
 
     render() {
