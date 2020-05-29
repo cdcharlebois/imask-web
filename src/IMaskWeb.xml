@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="mendix.imaskweb.IMaskWeb" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web" 
+    xmlns="http://www.mendix.com/widget/1.0/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>IMask Web</name>
+    <description>The missing masked input for Mendix</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="attribute" type="attribute" required="true">
+                <caption>Attribute</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="maskString" type="string" required="true" multiline="false">
+                <caption>Mask String</caption>
+                <description>Defaults are '0', 'a', and '*'. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
+            </property>
+            <property key="placeholder" type="textTemplate" required="false" multiline="false">
+                <caption>Placeholder</caption>
+                <description></description>
+                <translations>
+                    <translation lang="en_US"></translation>
+                </translations>
+            </property>
+            <systemProperty key="Label"/>
+            <systemProperty key="Editability"/>
+            <systemProperty key="Visibility"/>
+        </propertyGroup>
+        <propertyGroup caption="Behavior">
+            <property key="onAcceptAction" type="action">
+                <caption>On Accept</caption>
+                <description>Triggered each time an entered character is accepted.</description>
+            </property>
+            <property key="onCompleteAction" type="action">
+                <caption>On Complete</caption>
+                <description>Triggered when the full mask is completed.</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
