@@ -9,20 +9,30 @@ class IMaskWeb extends Component {
     constructor(props) {
         super(props);
         this.handleAcceptedEntry = this.handleAcceptedEntry.bind(this);
+        this.handleCompletedEntry = this.handleCompletedEntry.bind(this);
+        this._executeAction = this._executeAction.bind(this);
     }
 
     handleAcceptedEntry(value, mask) {
         const { attribute, onAcceptAction } = this.props;
-        attribute.setValue(value);
-        if (onAcceptAction && onAcceptAction.canExecute) {
-            onAcceptAction.execute();
+        if (value !== attribute.value) {
+            attribute.setValue(value);
+            this._executeAction(onAcceptAction);
         }
+
     }
 
     handleCompletedEntry(value) {
-        const { onCompleteAction } = this.props;
-        if (onCompleteAction && onCompleteAction.canExecute) {
-            onCompleteAction.execute();
+        const { attribute, onCompleteAction } = this.props;
+        if (value !== attribute.value) {
+            this._executeAction(onCompleteAction);
+        }
+
+    }
+
+    _executeAction(action) {
+        if (action && action.canExecute) {
+            action.execute();
         }
     }
 
@@ -33,10 +43,8 @@ class IMaskWeb extends Component {
                 mask={maskString}
                 value={attribute.value}
                 unmask={true} // true|false|'typed'
-                // DO NOT USE onChange TO HANDLE CHANGES!
                 onAccept={this.handleAcceptedEntry}
                 onComplete={this.handleCompletedEntry}
-                // input props also available
                 placeholder={placeholder.value}
             />
         )
