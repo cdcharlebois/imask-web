@@ -1,7 +1,6 @@
 import { Component, createElement } from "react";
 import { hot } from "react-hot-loader/root";
 
-// import { HelloWorldSample } from "./components/HelloWorldSample";
 import "./ui/IMaskWeb.css";
 import { IMaskInput } from 'react-imask';
 
