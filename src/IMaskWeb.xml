@@ -14,16 +14,28 @@
                     <attributeType name="String" />
                 </attributeTypes>
             </property>
-            <property key="maskString" type="string" required="true" multiline="false">
-                <caption>Mask String</caption>
-                <description>Defaults are '0', 'a', and '*'. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
-            </property>
             <property key="placeholder" type="textTemplate" required="false" multiline="false">
                 <caption>Placeholder</caption>
                 <description></description>
                 <translations>
                     <translation lang="en_US"></translation>
                 </translations>
+            </property>
+            <property key="enuMaskType" type="enumeration" defaultValue="pattern" required="true">
+                <caption>Mask Type</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="pattern">Pattern</enumerationValue>
+                    <enumerationValue key="regex">Regex</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="strMaskRegex" type="string" required="false" multiline="false">
+                <caption>Regular Expression</caption>
+                <description>Don't include beginning or trailing slashes. Will be passed into `new RegExp({your_value})`</description>
+            </property>
+            <property key="strMaskPattern" type="string" required="false" multiline="false">
+                <caption>Pattern</caption>
+                <description>Defaults are '0', 'a', and '*'. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
             </property>
             <systemProperty key="Label"/>
             <systemProperty key="Editability"/>
@@ -36,7 +48,7 @@
             </property>
             <property key="onCompleteAction" type="action">
                 <caption>On Complete</caption>
-                <description>Triggered when the full mask is completed.</description>
+                <description>Triggered when the full mask is completed. (Note: the final char input will also trigger the On Accept action)</description>
             </property>
         </propertyGroup>
     </properties>

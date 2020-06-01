@@ -12,18 +12,18 @@ class IMaskWeb extends Component {
         this._executeAction = this._executeAction.bind(this);
     }
 
-    handleAcceptedEntry(value, mask) {
+    handleAcceptedEntry(value, mask, e) {
         const { attribute, onAcceptAction } = this.props;
-        if (value !== attribute.value) {
+        if (e) {
             attribute.setValue(value);
             this._executeAction(onAcceptAction);
         }
 
     }
 
-    handleCompletedEntry(value) {
+    handleCompletedEntry(value, mask, e) {
         const { attribute, onCompleteAction } = this.props;
-        if (value !== attribute.value) {
+        if (e) {
             this._executeAction(onCompleteAction);
         }
 
@@ -36,10 +36,10 @@ class IMaskWeb extends Component {
     }
 
     render() {
-        const { attribute, maskString, placeholder } = this.props;
+        const { attribute, strMaskPattern, strMaskRegex, enuMaskType, placeholder } = this.props;
         return (
             <IMaskInput
-                mask={maskString}
+                mask={enuMaskType === 'pattern' ? strMaskPattern : new RegExp(strMaskRegex)}
                 value={attribute.value}
                 unmask={true} // true|false|'typed'
                 onAccept={this.handleAcceptedEntry}
