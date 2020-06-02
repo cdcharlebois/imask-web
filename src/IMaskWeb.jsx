@@ -10,6 +10,7 @@ class IMaskWeb extends Component {
         this.handleAcceptedEntry = this.handleAcceptedEntry.bind(this);
         this.handleCompletedEntry = this.handleCompletedEntry.bind(this);
         this._executeAction = this._executeAction.bind(this);
+        this._getCustomDefinitions = this._getCustomDefinitions.bind(this);
     }
 
     handleAcceptedEntry(value, mask, e) {
@@ -34,6 +35,26 @@ class IMaskWeb extends Component {
         }
     }
 
+    /**
+     * Define custom mask character definitions.
+     * ---
+     * see for more details https://imask.js.org/guide.html#masked-pattern
+     * @returns {Object} Definitions
+     * @author Conner Charlebois
+     * @since Jun 2, 2020
+     */
+    _getCustomDefinitions() {
+        const { objCustomDefinitions } = this.props;
+
+        if (!objCustomDefinitions) return null;
+
+        let definitions = {};
+        objCustomDefinitions.forEach((obj) => {
+            definitions[obj.strCharacter] = new RegExp(obj.strRegex);
+        })
+        return definitions;
+    }
+
     render() {
         const {
             attribute,
@@ -48,6 +69,7 @@ class IMaskWeb extends Component {
         return (
             <IMaskInput
                 mask={strMaskPattern}
+                definitions={this._getCustomDefinitions()}
                 value={attribute.value}
                 overwrite={blnOverwriteMode}
                 lazy={blnLazy}
@@ -56,6 +78,7 @@ class IMaskWeb extends Component {
                 onAccept={this.handleAcceptedEntry}
                 onComplete={this.handleCompletedEntry}
                 placeholder={placeholder.value}
+                className={`form-control`}
             />
         )
 
