@@ -1,8 +1,9 @@
-import { Component, createElement } from "react";
+import { Component, createElement, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
 
 import "./ui/IMaskWeb.css";
 import { IMaskInput } from 'react-imask';
+import Alert from './components/Alert';
 
 class IMaskWeb extends Component {
     constructor(props) {
@@ -67,19 +68,24 @@ class IMaskWeb extends Component {
             blnLazy
         } = this.props;
         return (
-            <IMaskInput
-                mask={strMaskPattern}
-                definitions={this._getCustomDefinitions()}
-                value={attribute.value}
-                overwrite={blnOverwriteMode}
-                lazy={blnLazy}
-                placeholderChar={strPlaceholderChar}
-                unmask={true} // true|false|'typed'
-                onAccept={this.handleAcceptedEntry}
-                onComplete={this.handleCompletedEntry}
-                placeholder={placeholder.value}
-                className={`form-control`}
-            />
+            <Fragment>
+                <IMaskInput
+                    mask={strMaskPattern}
+                    definitions={this._getCustomDefinitions()}
+                    value={attribute.value}
+                    overwrite={blnOverwriteMode}
+                    lazy={blnLazy}
+                    placeholderChar={strPlaceholderChar}
+                    unmask={true} // true|false|'typed'
+                    onAccept={this.handleAcceptedEntry}
+                    onComplete={this.handleCompletedEntry}
+                    placeholder={placeholder.value}
+                    className={`form-control`}
+                />
+                <Alert type="danger" isValidation="true">
+                    {attribute.validation}
+                </Alert>
+            </Fragment>
         )
 
     }
