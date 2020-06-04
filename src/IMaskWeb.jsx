@@ -60,8 +60,6 @@ class IMaskWeb extends Component {
         const {
             attribute,
             strMaskPattern,
-            // strMaskRegex,
-            // enuMaskType,
             placeholder,
             blnOverwriteMode,
             strPlaceholderChar,
@@ -81,6 +79,7 @@ class IMaskWeb extends Component {
                     onComplete={this.handleCompletedEntry}
                     placeholder={placeholder.value}
                     className={`form-control`}
+                    disabled={attribute.readOnly}
                 />
                 <Alert type="danger" isValidation="true">
                     {attribute.validation}

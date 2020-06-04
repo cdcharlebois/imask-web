@@ -16,6 +16,10 @@
                     <attributeType name="String" />
                 </attributeTypes>
             </property>
+            <property key="strMaskPattern" type="string" required="true" multiline="false">
+                <caption>Pattern</caption>
+                <description>Defaults are '0', 'a', and '*'. Use '[]' to make input optional. Use '{}' to include a fixed region in the unmasked value. Use '`' to prevent symbols shifting back. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
+            </property>
             <property key="placeholder" type="textTemplate" required="false" multiline="false">
                 <caption>Placeholder Text</caption>
                 <description>(Only applies to Lazy Masks)</description>
@@ -23,23 +27,6 @@
                     <translation lang="en_US"></translation>
                 </translations>
             </property>
-            <!-- <property key="enuMaskType" type="enumeration" defaultValue="pattern" required="true">
-                <caption>Mask Type</caption>
-                <description></description>
-                <enumerationValues>
-                    <enumerationValue key="pattern">Pattern</enumerationValue>
-                    <enumerationValue key="regex">Regex</enumerationValue>
-                </enumerationValues>
-            </property> -->
-            <!-- <property key="strMaskRegex" type="string" required="false" multiline="false">
-                <caption>Regular Expression</caption>
-                <description>Don't include beginning or trailing slashes. Will be passed into `new RegExp({your_value})`</description>
-            </property> -->
-            <property key="strMaskPattern" type="string" required="false" multiline="false">
-                <caption>Pattern</caption>
-                <description>Defaults are '0', 'a', and '*'. Use '[]' to make input optional. Use '{}' to include a fixed region in the unmasked value. Use '`' to prevent symbols shifting back. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
-            </property>
-
             <systemProperty key="Editability"/>
             <systemProperty key="Visibility"/>
         </propertyGroup>
@@ -56,14 +43,15 @@
                 <caption>Overwrite mode?</caption>
                 <description>When "true," valid entered characters will replace existing characters, instead of being inserted. </description>
             </property>
-            <property key="strPlaceholderChar" type="string" required="false" multiline="false">
-                <caption>Placeholder Char</caption>
-                <description>Eg `_` or `*`</description>
-            </property>
             <property key="blnLazy" type="boolean" defaultValue="true">
                 <caption>Lazy Mask?</caption>
                 <description>If false, placeholder chars will always be visible</description>
             </property>
+            <property key="strPlaceholderChar" type="string" required="true" multiline="false" defaultValue="_">
+                <caption>Placeholder Char</caption>
+                <description>Eg `_` or `*`</description>
+            </property>
+
         </propertyGroup>
         <propertyGroup caption="Advanced">
             <property key="objCustomDefinitions" type="object" isList="true" required="false">
