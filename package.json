@@ -1,7 +1,7 @@
 {
   "name": "imask-web",
   "widgetName": "IMaskWeb",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The missing masked input for Mendix",
   "copyright": "Mendix 2019",
   "author": "Conner",
