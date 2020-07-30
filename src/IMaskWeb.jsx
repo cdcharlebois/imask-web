@@ -2,8 +2,8 @@ import { Component, createElement, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
 
 import "./ui/IMaskWeb.css";
-import { IMaskInput } from 'react-imask';
-import Alert from './components/Alert';
+import { IMaskInput } from "react-imask";
+import Alert from "./components/Alert";
 
 class IMaskWeb extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class IMaskWeb extends Component {
         this.handleCompletedEntry = this.handleCompletedEntry.bind(this);
         this._executeAction = this._executeAction.bind(this);
         this._getCustomDefinitions = this._getCustomDefinitions.bind(this);
+        this._getBlocks = this._getBlocks.bind(this);
     }
 
     handleAcceptedEntry(value, mask, e) {
@@ -27,7 +28,6 @@ class IMaskWeb extends Component {
         if (e) {
             this._executeAction(onCompleteAction);
         }
-
     }
 
     _executeAction(action) {
@@ -50,26 +50,41 @@ class IMaskWeb extends Component {
         if (!objCustomDefinitions) return null;
 
         let definitions = {};
-        objCustomDefinitions.forEach((obj) => {
+        objCustomDefinitions.forEach(obj => {
             definitions[obj.strCharacter] = new RegExp(obj.strRegex);
-        })
+        });
         return definitions;
     }
 
+    _getBlocks() {
+        const { objCustomBlocks } = this.props;
+        let blx = {};
+        objCustomBlocks.forEach(block => {
+            switch (block.enuBlockType) {
+                case "pattern":
+                    blx[block.strBlockName] = { mask: block.strBlockMask };
+                case "range":
+                    blx[block.strBlockName] =
+                        block.exprBlockFrom.status === "available" && block.exprBlockTo.status === "available"
+                            ? {
+                                  mask: IMask.MaskedRange,
+                                  from: block.exprBlockFrom.value,
+                                  to: block.exprBlockTo.value
+                              }
+                            : undefined;
+            }
+        });
+        return blx;
+    }
+
     render() {
-        const {
-            attribute,
-            strMaskPattern,
-            placeholder,
-            blnOverwriteMode,
-            strPlaceholderChar,
-            blnLazy
-        } = this.props;
+        const { attribute, strMaskPattern, placeholder, blnOverwriteMode, strPlaceholderChar, blnLazy } = this.props;
         return (
             <Fragment>
                 <IMaskInput
                     mask={strMaskPattern}
                     definitions={this._getCustomDefinitions()}
+                    blocks={this._getBlocks()}
                     value={attribute.value}
                     overwrite={blnOverwriteMode}
                     lazy={blnLazy}
@@ -85,8 +100,7 @@ class IMaskWeb extends Component {
                     {attribute.validation}
                 </Alert>
             </Fragment>
-        )
-
+        );
     }
 }
 

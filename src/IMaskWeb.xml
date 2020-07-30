@@ -1,75 +1,113 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="mendix.imaskweb.IMaskWeb" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web" 
-    xmlns="http://www.mendix.com/widget/1.0/" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
-    <name>IMask Web</name>
-    <description>The missing masked input for Mendix</description>
-    <icon/>
-    <properties>
-        <propertyGroup caption="General">
-            <systemProperty key="Label"/>
+<widget id="mendix.imaskweb.IMaskWeb" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+  xmlns="http://www.mendix.com/widget/1.0/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+  <name>IMask Web</name>
+  <description>The missing masked input for Mendix</description>
+  <icon>  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
+  </icon>
+  <properties>
+    <propertyGroup caption="General">
+      <systemProperty key="Label"/>
 
-            <property key="attribute" type="attribute" required="true">
-                <caption>Attribute</caption>
-                <description></description>
-                <attributeTypes>
-                    <attributeType name="String" />
-                </attributeTypes>
-            </property>
-            <property key="strMaskPattern" type="string" required="true" multiline="false">
-                <caption>Pattern</caption>
-                <description>Defaults are '0', 'a', and '*'. Use '[]' to make input optional. Use '{}' to include a fixed region in the unmasked value. Use '`' to prevent symbols shifting back. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
-            </property>
-            <property key="placeholder" type="textTemplate" required="false" multiline="false">
-                <caption>Placeholder Text</caption>
-                <description>(Only applies to Lazy Masks)</description>
-                <translations>
-                    <translation lang="en_US"></translation>
-                </translations>
-            </property>
-            <systemProperty key="Editability"/>
-            <systemProperty key="Visibility"/>
-        </propertyGroup>
-        <propertyGroup caption="Behavior">
-            <property key="onAcceptAction" type="action">
-                <caption>On Accept</caption>
-                <description>Triggered each time an entered character is accepted.</description>
-            </property>
-            <property key="onCompleteAction" type="action">
-                <caption>On Complete</caption>
-                <description>Triggered when the full mask is completed. (Note: the final char input will also trigger the On Accept action)</description>
-            </property>
-            <property key="blnOverwriteMode" type="boolean" defaultValue="false">
-                <caption>Overwrite mode?</caption>
-                <description>When "true," valid entered characters will replace existing characters, instead of being inserted. </description>
-            </property>
-            <property key="blnLazy" type="boolean" defaultValue="true">
-                <caption>Lazy Mask?</caption>
-                <description>If false, placeholder chars will always be visible</description>
-            </property>
-            <property key="strPlaceholderChar" type="string" required="true" multiline="false" defaultValue="_">
-                <caption>Placeholder Char</caption>
-                <description>Eg `_` or `*`</description>
-            </property>
+      <property key="attribute" type="attribute" required="true">
+        <caption>Attribute</caption>
+        <description></description>
+        <attributeTypes>
+          <attributeType name="String" />
+        </attributeTypes>
+      </property>
+      <property key="strMaskPattern" type="string" required="true" multiline="false">
+        <caption>Pattern</caption>
+        <description>Defaults are '0', 'a', and '*'. Use '[]' to make input optional. Use '{}' to include a fixed region in the unmasked value. Use '`' to prevent symbols shifting back. See https://imask.js.org/guide.html#masked-pattern for more info.</description>
+      </property>
+      <property key="placeholder" type="textTemplate" required="false" multiline="false">
+        <caption>Placeholder Text</caption>
+        <description>(Only applies to Lazy Masks)</description>
+        <translations>
+          <translation lang="en_US"></translation>
+        </translations>
+      </property>
+      <systemProperty key="Editability"/>
+      <systemProperty key="Visibility"/>
+    </propertyGroup>
+    <propertyGroup caption="Behavior">
+      <property key="onAcceptAction" type="action">
+        <caption>On Accept</caption>
+        <description>Triggered each time an entered character is accepted.</description>
+      </property>
+      <property key="onCompleteAction" type="action">
+        <caption>On Complete</caption>
+        <description>Triggered when the full mask is completed. (Note: the final char input will also trigger the On Accept action)</description>
+      </property>
+      <property key="blnOverwriteMode" type="boolean" defaultValue="false">
+        <caption>Overwrite mode?</caption>
+        <description>When "true," valid entered characters will replace existing characters, instead of being inserted. </description>
+      </property>
+      <property key="blnLazy" type="boolean" defaultValue="true">
+        <caption>Lazy Mask?</caption>
+        <description>If false, placeholder chars will always be visible</description>
+      </property>
+      <property key="strPlaceholderChar" type="string" required="true" multiline="false" defaultValue="_">
+        <caption>Placeholder Char</caption>
+        <description>Eg `_` or `*`</description>
+      </property>
 
-        </propertyGroup>
-        <propertyGroup caption="Advanced">
-            <property key="objCustomDefinitions" type="object" isList="true" required="false">
-                <caption>Custom Definitions</caption>
-                <description>Use these to define custom definitions for any single character</description>
-                <properties>
-                    <property key="strCharacter" type="string" required="false">
-                        <caption>Character</caption>
-                        <category>Custom Definition</category>
-                        <description>Use this in the `Pattern`</description>
-                    </property>
-                    <property key="strRegex" type="string" required="false">
-                        <caption>Regular Expression</caption>
-                        <category>Custom Definition</category>
-                        <description>Evaluates as a regular expression against the individual entered character</description>
-                    </property>
-                </properties>
-            </property>
-        </propertyGroup>
-    </properties>
+    </propertyGroup>
+    <propertyGroup caption="Advanced">
+      <property key="objCustomDefinitions" type="object" isList="true" required="false">
+        <caption>Custom Definitions</caption>
+        <description>Use these to define custom definitions for any single character</description>
+        <properties>
+          <property key="strCharacter" type="string" required="false">
+            <caption>Character</caption>
+            <category>Custom Definition</category>
+            <description>Use this in the `Pattern`</description>
+          </property>
+          <property key="strRegex" type="string" required="false">
+            <caption>Regular Expression</caption>
+            <category>Custom Definition</category>
+            <description>Evaluates as a regular expression against the individual entered character</description>
+          </property>
+        </properties>
+      </property>
+      <property key="objCustomBlocks" type="object" isList="true" required="false">
+        <caption>Blocks</caption>
+        <description>Use these to define complex/nested masked sections.</description>
+        <properties>
+          <property key="strBlockName" type="string" required="true" multiline="false">
+            <caption>Name</caption>
+            <category>Block</category>
+            <description>This is used to identify the masked section in your "Pattern"</description>
+          </property>
+          <property key="enuBlockType" type="enumeration" defaultValue="pattern" required="true">
+            <caption>Block Type</caption>
+            <category>Block</category>
+            <description></description>
+            <enumerationValues>
+              <enumerationValue key="pattern">pattern (default)</enumerationValue>
+              <enumerationValue key="range">range</enumerationValue>
+            </enumerationValues>
+          </property>
+          <property key="strBlockMask" type="string" required="false" multiline="false">
+            <caption>Mask</caption>
+            <category>Block</category>
+            <description>acceptable mask for this block. Default chars are a, 0, and *.</description>
+          </property>
+          <property key="exprBlockFrom" type="expression" defaultValue="0">
+            <caption>From</caption>
+            <category>Block</category>
+            <description>Minimum</description>
+            <returnType type="Integer" />
+          </property>
+          <property key="exprBlockTo" type="expression" defaultValue="0">
+            <caption>To</caption>
+            <category>Block</category>
+            <description>Maximum</description>
+            <returnType type="Integer" />
+          </property>
+        </properties>
+      </property>
+    </propertyGroup>
+  </properties>
 </widget>
