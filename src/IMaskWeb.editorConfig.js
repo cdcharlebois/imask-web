@@ -65,3 +65,18 @@ export function check(values: any): Problem[] {
     return errors;
 }
  */
+import { hidePropertyIn } from "./piw-utils-js";
+
+export function getProperties(values, defaults) {
+    // values maps to the widget Properties
+    values.objCustomBlocks.forEach((block, index) => {
+        switch (block.enuBlockType) {
+            case "pattern":
+                hidePropertyIn(defaults, values, "objCustomBlocks", index, "exprBlockFrom");
+                hidePropertyIn(defaults, values, "objCustomBlocks", index, "exprBlockTo");
+            case "range":
+                hidePropertyIn(defaults, values, "objCustomBlocks", index, "strBlockMask");
+        }
+    });
+    return defaults;
+}
