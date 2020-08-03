@@ -1,4 +1,4 @@
-export function hidePropertyIn(propertyGroups, _value, key) {
+export function hidePropertyIn(propertyGroups, _value, key, nestedPropIndex, nestedPropKey) {
     modifyProperty(
         (_, index, container) => container.splice(index, 1),
         propertyGroups,
