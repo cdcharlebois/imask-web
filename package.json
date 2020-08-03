@@ -1,33 +1,33 @@
 {
-  "name": "imask-web",
-  "widgetName": "IMaskWeb",
-  "version": "2.0.0",
-  "description": "The missing masked input for Mendix",
-  "copyright": "Mendix 2019",
-  "author": "Conner",
-  "config": {
-    "widgetPath": "/Users/conner/mendix/p/Test8_6_3/widgets",
-    "projectPath": "/Users/conner/mendix/p/Test8_6_3",
-    "mendixHost": "http://localhost:8080",
-    "developmentPort": "3000"
-  },
-  "packagePath": "mendix",
-  "scripts": {
-    "start": "concurrently \"pluggable-widgets-tools start:server --open\" \"npm:dev\"",
-    "dev": "pluggable-widgets-tools start:js",
-    "build": "pluggable-widgets-tools build:js",
-    "lint": "pluggable-widgets-tools lint",
-    "lint:fix": "pluggable-widgets-tools lint:fix",
-    "prerelease": "npm run lint",
-    "release": "pluggable-widgets-tools release:js"
-  },
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^8.7.2"
-  },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "prop-types": "^15.7.2",
-    "react-imask": "^6.0.5"
-  }
+    "name": "imask-web",
+    "widgetName": "IMaskWeb",
+    "version": "2.0.0",
+    "description": "The missing masked input for Mendix",
+    "copyright": "Mendix 2019",
+    "author": "Conner",
+    "config": {
+        "widgetPath": "/Users/conner/mendix/p/ForgotPasswordExample/widgets",
+        "projectPath": "/Users/conner/mendix/p/ForgotPasswordExample",
+        "mendixHost": "http://localhost:8080",
+        "developmentPort": "3000"
+    },
+    "packagePath": "mendix",
+    "scripts": {
+        "start": "concurrently \"pluggable-widgets-tools start:server --open\" \"npm:dev\"",
+        "dev": "pluggable-widgets-tools start:js",
+        "build": "pluggable-widgets-tools build:js",
+        "lint": "pluggable-widgets-tools lint",
+        "lint:fix": "pluggable-widgets-tools lint:fix",
+        "prerelease": "npm run lint",
+        "release": "pluggable-widgets-tools release:js"
+    },
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@mendix/pluggable-widgets-tools": "^8.7.2"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "prop-types": "^15.7.2",
+        "react-imask": "^6.0.5"
+    }
 }

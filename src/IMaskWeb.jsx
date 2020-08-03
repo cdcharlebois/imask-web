@@ -1,9 +1,10 @@
 import { Component, createElement, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
-
-import "./ui/IMaskWeb.css";
 import { IMaskInput } from "react-imask";
+import "./ui/IMaskWeb.css";
+
 import Alert from "./components/Alert";
+import IMaskWrapper from "./components/IMaskWrapper";
 
 class IMaskWeb extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ class IMaskWeb extends Component {
         const { attribute, strMaskPattern, placeholder, blnOverwriteMode, strPlaceholderChar, blnLazy } = this.props;
         return (
             <Fragment>
-                <IMaskInput
+                <IMaskWrapper
                     mask={strMaskPattern}
                     definitions={this._getCustomDefinitions()}
                     blocks={this._getBlocks()}

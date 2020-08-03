@@ -14,7 +14,7 @@ function modifyProperty(modify, propertyGroups, key, nestedPropIndex, nestedProp
             modifyProperty(modify, propGroup.propertyGroups, key, nestedPropIndex, nestedPropKey);
         }
 
-        propGroup.properties?.forEach((prop, index, array) => {
+        propGroup.properties.forEach((prop, index, array) => {
             if (prop.key === key) {
                 if (nestedPropIndex === undefined || nestedPropKey === undefined) {
                     modify(prop, index, array);
