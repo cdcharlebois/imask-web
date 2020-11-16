@@ -79,7 +79,15 @@ class IMaskWeb extends Component {
     }
 
     render() {
-        const { attribute, strMaskPattern, placeholder, blnOverwriteMode, strPlaceholderChar, blnLazy } = this.props;
+        const {
+            attribute,
+            strMaskPattern,
+            placeholder,
+            blnOverwriteMode,
+            strPlaceholderChar,
+            blnLazy,
+            tabIndex
+        } = this.props;
         return (
             <Fragment>
                 <IMaskWrapper
@@ -96,6 +104,7 @@ class IMaskWeb extends Component {
                     placeholder={placeholder.value}
                     className={`form-control`}
                     disabled={attribute.readOnly}
+                    tabIndex={tabIndex}
                 />
                 <Alert type="danger" isValidation="true">
                     {attribute.validation}

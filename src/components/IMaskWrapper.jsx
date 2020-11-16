@@ -16,6 +16,7 @@ export default props => {
             placeholder={props.placeholder}
             className={props.className}
             disabled={props.disabled}
+            tabIndex={props.tabIndex}
         />
     );
 };

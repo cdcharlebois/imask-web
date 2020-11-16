@@ -6,8 +6,8 @@
     "copyright": "Mendix 2019",
     "author": "Conner",
     "config": {
-        "widgetPath": "/Users/conner/mendix/p/ForgotPasswordExample/widgets",
-        "projectPath": "/Users/conner/mendix/p/ForgotPasswordExample",
+        "widgetPath": "/Users/conner/mendix/p/Test8_6_3/widgets",
+        "projectPath": "/Users/conner/mendix/p/Test8_6_3",
         "mendixHost": "http://localhost:8080",
         "developmentPort": "3000"
     },
