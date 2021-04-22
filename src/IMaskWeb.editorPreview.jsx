@@ -17,7 +17,7 @@ export class preview extends Component {
                 onAccept={null}
                 onComplete={null}
                 placeholder={attribute}
-                className={`form-control`}
+                className={"form-control"}
                 disabled={false}
             />
         );

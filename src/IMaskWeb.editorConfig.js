@@ -12,6 +12,8 @@ export function getProperties(values, defaults) {
             case "range":
                 hidePropertyIn(defaults, values, "objCustomBlocks", index, "strBlockMask");
                 break;
+            default:
+                break;
         }
     });
     return defaults;
