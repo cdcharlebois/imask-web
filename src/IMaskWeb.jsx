@@ -1,16 +1,16 @@
-import { Component, createElement, Fragment } from "react";
-import { hot } from "react-hot-loader/root";
-import { IMaskInput } from "react-imask";
 import "./ui/IMaskWeb.css";
-
+import { Component, Fragment, createElement } from "react";
 import Alert from "./components/Alert";
+import { IMask } from "react-imask";
 import IMaskWrapper from "./components/IMaskWrapper";
+import { hot } from "react-hot-loader/root";
 
 class IMaskWeb extends Component {
     constructor(props) {
         super(props);
         this.handleAcceptedEntry = this.handleAcceptedEntry.bind(this);
         this.handleCompletedEntry = this.handleCompletedEntry.bind(this);
+        this.handleEnterKey = this.handleEnterKey.bind(this);
         this._executeAction = this._executeAction.bind(this);
         this._getCustomDefinitions = this._getCustomDefinitions.bind(this);
         this._getBlocks = this._getBlocks.bind(this);
@@ -25,9 +25,16 @@ class IMaskWeb extends Component {
     }
 
     handleCompletedEntry(value, mask, e) {
-        const { attribute, onCompleteAction } = this.props;
+        const { onCompleteAction } = this.props;
         if (e) {
             this._executeAction(onCompleteAction);
+        }
+    }
+
+    handleEnterKey(e) {
+        const { onEnterKeyAction } = this.props;
+        if (e.keyCode === 13) {
+            this._executeAction(onEnterKeyAction);
         }
     }
 
@@ -50,7 +57,7 @@ class IMaskWeb extends Component {
 
         if (!objCustomDefinitions) return null;
 
-        let definitions = {};
+        const definitions = {};
         objCustomDefinitions.forEach(obj => {
             definitions[obj.strCharacter] = new RegExp(obj.strRegex);
         });
@@ -59,11 +66,12 @@ class IMaskWeb extends Component {
 
     _getBlocks() {
         const { objCustomBlocks } = this.props;
-        let blx = {};
+        const blx = {};
         objCustomBlocks.forEach(block => {
             switch (block.enuBlockType) {
                 case "pattern":
                     blx[block.strBlockName] = { mask: block.strBlockMask };
+                    break;
                 case "range":
                     blx[block.strBlockName] =
                         block.exprBlockFrom.status === "available" && block.exprBlockTo.status === "available"
@@ -73,6 +81,9 @@ class IMaskWeb extends Component {
                                   to: block.exprBlockTo.value
                               }
                             : undefined;
+                    break;
+                default:
+                    break;
             }
         });
         return blx;
@@ -101,8 +112,9 @@ class IMaskWeb extends Component {
                     unmask={true} // true|false|'typed'
                     onAccept={this.handleAcceptedEntry}
                     onComplete={this.handleCompletedEntry}
+                    onKeyDown={this.handleEnterKey}
                     placeholder={placeholder.value}
-                    className={`form-control`}
+                    className={"form-control"}
                     disabled={attribute.readOnly}
                     tabIndex={tabIndex}
                 />

@@ -1,6 +1,7 @@
-import { Component, createElement } from "react";
 import { IMaskInput } from "react-imask";
-export default props => {
+import { createElement } from "react";
+
+export default function IMaskInputMx(props) {
     return (
         <IMaskInput
             mask={props.mask}
@@ -13,10 +14,11 @@ export default props => {
             unmask={props.unmask} // true|false|'typed'
             onAccept={props.onAccept}
             onComplete={props.onComplete}
+            onKeyDown={props.onKeyDown}
             placeholder={props.placeholder}
             className={props.className}
             disabled={props.disabled}
             tabIndex={props.tabIndex}
         />
     );
-};
+}

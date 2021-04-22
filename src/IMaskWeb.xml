@@ -40,6 +40,10 @@
         <caption>On Complete</caption>
         <description>Triggered when the full mask is completed. (Note: the final char input will also trigger the On Accept action)</description>
       </property>
+      <property key="onEnterKeyAction" type="action">
+        <caption>On Enter Key Press</caption>
+        <description>Triggered when the field is focused and the enter/return key is pressed.</description>
+      </property>
       <property key="blnOverwriteMode" type="boolean" defaultValue="false">
         <caption>Overwrite mode?</caption>
         <description>When "true," valid entered characters will replace existing characters, instead of being inserted. </description>
