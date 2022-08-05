@@ -16,8 +16,5 @@ export function getProperties(values, defaults) {
                 break;
         }
     });
-    if (values.autocomplete !== "other") {
-        hidePropertyIn(defaults, values, "autocompleteOther");
-    }
     return defaults;
 }
