@@ -5,9 +5,16 @@
     "description": "The missing masked input for Mendix",
     "copyright": "Mendix 2019",
     "author": "Conner",
+    "contributors": [
+        {
+            "name": "Clint Bush",
+            "email": "clint@madebyclint.com",
+            "url": "https://madebyclint.com"
+        }
+    ],
     "config": {
         "widgetPath": "/Users/conner/mendix/p/Test8_6_3/widgets",
-        "projectPath": "/Users/conner/mendix/p/Test8_6_3",
+        "projectPath": "/Users/clint.bush/Projects - No Cloud/Mendix/IMaskWeb Fork Widget Demo-main",
         "mendixHost": "http://localhost:8080",
         "developmentPort": "3000"
     },
