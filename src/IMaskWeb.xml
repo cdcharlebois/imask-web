@@ -9,7 +9,6 @@
   <properties>
     <propertyGroup caption="General">
       <systemProperty key="Label"/>
-
       <property key="attribute" type="attribute" required="true">
         <caption>Attribute</caption>
         <description></description>
@@ -27,6 +26,70 @@
         <translations>
           <translation lang="en_US"></translation>
         </translations>
+      </property>
+      <property key="autocomplete" type="enumeration" defaultValue="off" required="true">
+        <caption>Autocomplete value</caption>
+        <description>See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for more information</description>
+        <enumerationValues>
+          <enumerationValue key="off">off</enumerationValue>
+          <enumerationValue key="on">on</enumerationValue>
+          <enumerationValue key="name">name</enumerationValue>
+          <enumerationValue key="honorificprefix">honorific-prefix</enumerationValue>
+          <enumerationValue key="givenname">given-name</enumerationValue>
+          <enumerationValue key="additionalname">additional-name</enumerationValue>
+          <enumerationValue key="familyname">family-name</enumerationValue>
+          <enumerationValue key="honorificsuffix">honorific-suffix</enumerationValue>
+          <enumerationValue key="nickname">nickname</enumerationValue>
+          <enumerationValue key="email">email</enumerationValue>
+          <enumerationValue key="username">username</enumerationValue>
+          <enumerationValue key="newpassword">new-password</enumerationValue>
+          <enumerationValue key="currentpassword">current-password</enumerationValue>
+          <enumerationValue key="onetimecode">one-time-code</enumerationValue>
+          <enumerationValue key="organizationtitle">organization-title</enumerationValue>
+          <enumerationValue key="organization">organization</enumerationValue>
+          <enumerationValue key="streetaddress">street-address</enumerationValue>
+          <enumerationValue key="addressline1">address-line1</enumerationValue>
+          <enumerationValue key="addressline2">address-line2</enumerationValue>
+          <enumerationValue key="addressline3">address-line3</enumerationValue>
+          <enumerationValue key="addresslevel4">address-level4</enumerationValue>
+          <enumerationValue key="addresslevel3">address-level3</enumerationValue>
+          <enumerationValue key="addresslevel2">address-level2</enumerationValue>
+          <enumerationValue key="addresslevel1">address-level1</enumerationValue>
+          <enumerationValue key="country">country</enumerationValue>
+          <enumerationValue key="countryname">country-name</enumerationValue>
+          <enumerationValue key="postalcode">postal-code</enumerationValue>
+          <enumerationValue key="ccname">cc-name</enumerationValue>
+          <enumerationValue key="ccgivenname">cc-given-name</enumerationValue>
+          <enumerationValue key="ccadditionalname">cc-additional-name</enumerationValue>
+          <enumerationValue key="ccfamilyname">cc-family-name</enumerationValue>
+          <enumerationValue key="ccnumber">cc-number</enumerationValue>
+          <enumerationValue key="ccexp">cc-exp</enumerationValue>
+          <enumerationValue key="ccexpyear">cc-exp-year</enumerationValue>
+          <enumerationValue key="cccsc">cc-csc</enumerationValue>
+          <enumerationValue key="cctype">cc-type</enumerationValue>
+          <enumerationValue key="transactioncurrency">transaction-currency</enumerationValue>
+          <enumerationValue key="transactionamount">transaction-amount</enumerationValue>
+          <enumerationValue key="language">language</enumerationValue>
+          <enumerationValue key="bday">bday</enumerationValue>
+          <enumerationValue key="bdayday">bday-day</enumerationValue>
+          <enumerationValue key="bdaymonth">bday-month</enumerationValue>
+          <enumerationValue key="bdayyear">bday-year</enumerationValue>
+          <enumerationValue key="sex">sex</enumerationValue>
+          <enumerationValue key="tel">tel</enumerationValue>
+          <enumerationValue key="telcountrycode">tel-country-code</enumerationValue>
+          <enumerationValue key="telnational">tel-national</enumerationValue>
+          <enumerationValue key="telareacode">tel-area-code</enumerationValue>
+          <enumerationValue key="tellocal">tel-local</enumerationValue>
+          <enumerationValue key="telextension">tel-extension</enumerationValue>
+          <enumerationValue key="impp">impp</enumerationValue>
+          <enumerationValue key="url">url</enumerationValue>
+          <enumerationValue key="photo">photo</enumerationValue>
+          <enumerationValue key="other">other</enumerationValue>
+        </enumerationValues>
+      </property>
+      <property key="autocompleteOther" type="string" required="false" multiline="false" defaultValue="other">
+        <caption>Autocomplete value</caption>
+        <description>A custom value might through a HTML validation error. Use with caution.</description>
       </property>
       <systemProperty key="Editability"/>
       <systemProperty key="Visibility"/>
