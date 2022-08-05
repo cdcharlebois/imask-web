@@ -89,9 +89,95 @@ class IMaskWeb extends Component {
         return blx;
     }
 
+    _getAutoCompleteValue(key) {
+        switch (key) {
+            case "honorificprefix":
+                return "honorific-prefix";
+            case "givenname":
+                return "given-name";
+            case "additionalname":
+                return "additional-name";
+            case "familyname":
+                return "family-name";
+            case "honorificsuffix":
+                return "honorific-suffix";
+            case "newpassword":
+                return "new-password";
+            case "currentpassword":
+                return "current-password";
+            case "onetimecode":
+                return "one-time-code";
+            case "organizationtitle":
+                return "organization-title";
+            case "streetaddress":
+                return "street-address";
+            case "addressline1":
+                return "address-line1";
+            case "addressline2":
+                return "address-line2";
+            case "addressline3":
+                return "address-line3";
+            case "addresslevel4":
+                return "address-level4";
+            case "addresslevel3":
+                return "address-level3";
+            case "addresslevel2":
+                return "address-level2";
+            case "addresslevel1":
+                return "address-level1";
+            case "countryname":
+                return "country-name";
+            case "postalcode":
+                return "postal-code";
+            case "ccname":
+                return "cc-name";
+            case "ccgivenname":
+                return "cc-given-name";
+            case "ccadditionalname":
+                return "cc-additional-name";
+            case "ccfamilyname":
+                return "cc-family-name";
+            case "ccnumber":
+                return "cc-number";
+            case "ccexp":
+                return "cc-exp";
+            case "ccexpyear":
+                return "cc-exp-year";
+            case "cccsc":
+                return "cc-csc";
+            case "cctype":
+                return "cc-type";
+            case "transactioncurrency":
+                return "transaction-currency";
+            case "transactionamount":
+                return "transaction-amount";
+            case "bdayday":
+                return "bday-day";
+            case "bdaymonth":
+                return "bday-month";
+            case "bdayyear":
+                return "bday-year";
+            case "telcountrycode":
+                return "tel-country-code";
+            case "telnational":
+                return "tel-national";
+            case "telareacode":
+                return "tel-area-code";
+            case "tellocal":
+                return "tel-local";
+            case "telextension":
+                return "tel-extension";
+            case "other":
+                return this.props.autocompleteOther;
+            default:
+                return key;
+        }
+    }
+
     render() {
         const {
             attribute,
+            autocomplete,
             strMaskPattern,
             placeholder,
             blnOverwriteMode,
@@ -99,6 +185,7 @@ class IMaskWeb extends Component {
             blnLazy,
             tabIndex
         } = this.props;
+
         return (
             <Fragment>
                 <IMaskWrapper
@@ -117,6 +204,7 @@ class IMaskWeb extends Component {
                     className={"form-control"}
                     disabled={attribute.readOnly}
                     tabIndex={tabIndex}
+                    autoComplete={this._getAutoCompleteValue(autocomplete)}
                 />
                 <Alert type="danger" isValidation="true">
                     {attribute.validation}
