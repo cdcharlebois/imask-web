@@ -176,6 +176,7 @@ class IMaskWeb extends Component {
 
     render() {
         const {
+            asPassword,
             attribute,
             autocomplete,
             strMaskPattern,
@@ -205,6 +206,7 @@ class IMaskWeb extends Component {
                     disabled={attribute.readOnly}
                     tabIndex={tabIndex}
                     autoComplete={this._getAutoCompleteValue(autocomplete)}
+                    type={asPassword ? "password" : "text"}
                 />
                 <Alert type="danger" isValidation="true">
                     {attribute.validation}

@@ -20,6 +20,7 @@ export default function IMaskInputMx(props) {
             disabled={props.disabled}
             tabIndex={props.tabIndex}
             autoComplete={props.autoComplete}
+            type={props.type}
         />
     );
 }

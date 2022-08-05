@@ -27,6 +27,10 @@
           <translation lang="en_US"></translation>
         </translations>
       </property>
+      <property key="asPassword" type="boolean" defaultValue="false">
+        <caption>Show as password?</caption>
+        <description>Hides clear text</description>
+      </property>
       <property key="autocomplete" type="enumeration" defaultValue="off" required="true">
         <caption>Autocomplete value</caption>
         <description>See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for more information</description>
