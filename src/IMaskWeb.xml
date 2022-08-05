@@ -28,6 +28,10 @@
           <translation lang="en_US"></translation>
         </translations>
       </property>
+      <property key="asPassword" type="boolean" defaultValue="false">
+        <caption>Show as password?</caption>
+        <description>Hides clear text</description>
+      </property>
       <systemProperty key="Editability"/>
       <systemProperty key="Visibility"/>
     </propertyGroup>

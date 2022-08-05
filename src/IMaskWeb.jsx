@@ -91,6 +91,7 @@ class IMaskWeb extends Component {
 
     render() {
         const {
+            asPassword,
             attribute,
             strMaskPattern,
             placeholder,
@@ -117,6 +118,7 @@ class IMaskWeb extends Component {
                     className={"form-control"}
                     disabled={attribute.readOnly}
                     tabIndex={tabIndex}
+                    type={asPassword ? "password" : "text"}
                 />
                 <Alert type="danger" isValidation="true">
                     {attribute.validation}
